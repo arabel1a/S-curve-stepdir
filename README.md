@@ -11,7 +11,7 @@ Expected to be used on low-cost microcontrollers such as Arduino Uno / (maybe ev
 * Equal area discretization of pulse curve
 * Newyhon's iteration method instead of accurate solving improves calculation speed on microcontrollers without FPU
 
-![alt text](https://github.com/arabel1a/hg-set/blob/251d73557c97bfe96d3102f41a9227922dcffc66/graphs.png?raw=true)
+![alt text](https://github.com/arabel1a/hg-set/blob/86c0ac5c8a4a52a7e100a826815487dfb3b82b9d/graphs.png?raw=true)
 
 # How to use
 
