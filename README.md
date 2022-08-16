@@ -22,10 +22,20 @@ Then you need to specify acceleration parameters. Create struct "profile" and fi
 *   `float max_t_c`			   Maximum acceleration time, s.
 *   `float c`              Maximum allowed acceleration, (micro)steps/s^2.
 *   `float * timings`      Pointer to table of timings. Can be just a massive or FLASH memory adress.
-*	   `int ksi`             Guaranteed path that will be passed with constant speed, steps.
+*	  `int ksi`              Guaranteed path that will be passed with constant speed, steps.
 
 In my application, it is more nessesary to pass some way with constant speed, than to reach concrette target speed in concrette time. If it's possible with choosen `c`, algorithm will pass the intreval `[C-ksi, C+ksi]`, where C is center of path, with speed `f_c`. If not, this interval will be passed with maximal aviable constant speed. In other intervals, it chooses the sloqwest possible acceleration to decrease vibrations and chance of step loss.  If it's not so for you, just write your own trajectory planner, main mathematic will be the same.
 
 After cpecifying this patrameters just call `trajectory_planner`. 
 
 Now, you have acceleration table `[your_sructure_name].timings`. Just make a step pulse (using timer interrupts or just a delay) with time between i-th and (i+1)th equal `[your_sructure_name].timings[i]`. When you reach the end of a table, you should make pulses with delay equal to the lats timing, untill you get to deceleration position. Then pass this (or another, computed the same way? if you need) table in inverse order. That's all. For more details, see example.
+
+## Visualization
+
+For debug and aesthetic purposes, there is a visualization tool. To run it, you need python3 with numpy and matplotlib and jupyter notebook. Or you can run it in google colab. Juct specify required parameters in 1st cell, click "run all" and enjoy pretty graphs.
+
+## Example
+
+There is a short example for STM32F103RB, written as MDK-ARM project. 
+/*/*/**/*/*/* TODO example description.
+
