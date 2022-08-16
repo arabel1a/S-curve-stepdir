@@ -27,7 +27,7 @@ Then you need to specify acceleration parameters. Create struct "profile" and fi
 *   `int ksi`              Guaranteed path that will be passed with constant speed, steps.
 
 
-In my application, it is more nessesary to pass some way with constant speed, than to reach concrette target speed in concrette time. If it's possible with choosen `c`, algorithm will pass the intreval `[C-ksi, C+ksi]`, where C is center of path, with speed `f_c`. If not, this interval will be passed with maximal aviable constant speed. In other intervals, it chooses the sloqwest possible acceleration to decrease vibrations and chance of step loss.  If it's not so for you, just write your own trajectory planner, main mathematic will be the same.
+In my application, it is more nessesary to pass some way with constant speed, than to reach concrette target speed in concrette time. If it's possible with choosen `c`, algorithm will pass the intreval `[center-ksi, center+ksi]`, where center means center of path, with speed `f_c`. If not, this interval will be passed with maximal aviable constant speed. In other intervals, it chooses the sloqwest possible acceleration to decrease vibrations and chance of step loss.  If it's not so for you, just write your own trajectory planner, main mathematic will be the same.
 
 After cpecifying this patrameters just call `trajectory_planner`. 
 
