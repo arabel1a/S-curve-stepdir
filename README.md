@@ -42,3 +42,5 @@ For debug and aesthetic purposes, there is a visualization tool. To run it, you 
 There is a short example for STM32F103RB, written as MDK-ARM project. 
 /*/*/**/*/*/* TODO example description.
 
+
+Hope it would save someone's time. If you haveany questions, feel free to contact me via Telegramm @arabel1a 
