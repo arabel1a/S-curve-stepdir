@@ -11,6 +11,8 @@ Expected to be used on low-cost microcontrollers such as Arduino Uno / (maybe ev
 * Equal area discretization of pulse curve
 * Newyhon's iteration method instead of accurate solving improves calculation speed on microcontrollers without FPU
 
+![alt text](https://github.com/arabel1a/hg-set/blob/251d73557c97bfe96d3102f41a9227922dcffc66/graphs.png?raw=true)
+
 # How to use
 
 ## Backend
@@ -22,7 +24,8 @@ Then you need to specify acceleration parameters. Create struct "profile" and fi
 *   `float max_t_c`			   Maximum acceleration time, s.
 *   `float c`              Maximum allowed acceleration, (micro)steps/s^2.
 *   `float * timings`      Pointer to table of timings. Can be just a massive or FLASH memory adress.
-*	  `int ksi`              Guaranteed path that will be passed with constant speed, steps.
+*   `int ksi`              Guaranteed path that will be passed with constant speed, steps.
+
 
 In my application, it is more nessesary to pass some way with constant speed, than to reach concrette target speed in concrette time. If it's possible with choosen `c`, algorithm will pass the intreval `[C-ksi, C+ksi]`, where C is center of path, with speed `f_c`. If not, this interval will be passed with maximal aviable constant speed. In other intervals, it chooses the sloqwest possible acceleration to decrease vibrations and chance of step loss.  If it's not so for you, just write your own trajectory planner, main mathematic will be the same.
 
@@ -35,7 +38,7 @@ Now, you have acceleration table `[your_sructure_name].timings`. Just make a ste
 For debug and aesthetic purposes, there is a visualization tool. To run it, you need python3 with numpy and matplotlib and jupyter notebook. Or you can run it in google colab. Juct specify required parameters in 1st cell, click "run all" and enjoy pretty graphs.
 
 ## Example
-
+![alt text](https://github.com/arabel1a/hg-set/blob/80d84c4c87f63d60765237c2049142040c9b7a02/example.png?raw=true)
 There is a short example for STM32F103RB, written as MDK-ARM project. 
 /*/*/**/*/*/* TODO example description.
 
